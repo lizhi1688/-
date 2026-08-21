@@ -7,137 +7,177 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>配對成功</title>
+<title>附近配對</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 
 
 <style>
 
 
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
 
 
 body{
 
-    margin:0;
+margin:0;
 
-    background:#050914;
+background:#050914;
 
-    font-family:
-    "Microsoft JhengHei",
-    Arial,
-    sans-serif;
+font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
 
-    color:white;
+color:#fff;
 
 }
 
 
-/* 手機容器 */
 
 .mobile{
 
-    width:100%;
+width:100%;
 
-    max-width:430px;
+max-width:430px;
 
-    min-height:100vh;
+min-height:100vh;
 
-    margin:auto;
+margin:auto;
 
-    background:#101827;
+background:#101827;
 
-    overflow:hidden;
+position:relative;
+
+overflow:hidden;
 
 }
 
 
 
-/* 頂部 */
+
+
+/* 首頁 */
 
 
 .header{
 
-    text-align:center;
+text-align:center;
 
-    padding:20px 15px;
+padding:20px 10px;
 
 }
+
 
 
 .header h2{
 
-    margin:0;
+margin:0;
 
-    font-size:22px;
+font-size:22px;
 
 }
+
 
 
 .timer{
 
-    margin-top:8px;
+margin-top:8px;
 
-    font-size:24px;
+font-size:22px;
 
-    color:#4da3ff;
+font-weight:bold;
 
-    font-weight:bold;
+color:#60a5fa;
 
 }
 
 
 
 
-
-/* 卡片區 */
 
 
 .container{
 
-    display:grid;
 
-    grid-template-columns:1fr 1fr;
+display:grid;
 
-    gap:12px;
+grid-template-columns:1fr 1fr;
 
-    padding:12px;
+gap:12px;
+
+padding:12px;
+
+padding-bottom:100px;
 
 }
+
 
 
 
 
 .card{
 
-    background:#1b263b;
+background:#1e293b;
 
-    border-radius:15px;
+border-radius:15px;
 
-    overflow:hidden;
+overflow:hidden;
+
+position:relative;
 
 }
+
+
+
+
+
+.online-tag{
+
+
+position:absolute;
+
+top:10px;
+
+left:10px;
+
+z-index:5;
+
+background:#f59e0b;
+
+color:white;
+
+padding:5px 9px;
+
+border-radius:8px;
+
+font-size:12px;
+
+font-weight:bold;
+
+}
+
 
 
 
 
 .card img{
 
-    width:100%;
+width:100%;
 
-    height:210px;
+height:210px;
 
-    object-fit:cover;
+object-fit:cover;
 
 }
 
 
 
 
+
 .info{
 
-    padding:10px;
+padding:10px;
 
 }
 
@@ -145,9 +185,9 @@ body{
 
 .name{
 
-    font-size:17px;
+font-size:17px;
 
-    font-weight:bold;
+font-weight:bold;
 
 }
 
@@ -155,11 +195,11 @@ body{
 
 .location{
 
-    margin-top:5px;
+font-size:12px;
 
-    font-size:12px;
+color:#fda4af;
 
-    color:#fda4af;
+margin-top:5px;
 
 }
 
@@ -167,40 +207,83 @@ body{
 
 .views{
 
-    margin-top:4px;
+font-size:12px;
 
-    color:#94a3b8;
+color:#94a3b8;
 
-    font-size:12px;
+margin-top:5px;
 
 }
 
 
 
 
+
 .btn{
 
-    width:90%;
 
-    margin:10px 5%;
+width:90%;
 
-    padding:12px;
+margin:10px 5%;
 
-    border:none;
+padding:12px;
 
-    border-radius:12px;
+border:none;
 
-    background:
-    linear-gradient(
-    90deg,
-    #3b82f6,
-    #a855f7
-    );
+border-radius:12px;
+
+background:linear-gradient(90deg,#3b82f6,#a855f7);
+
+color:white;
+
+font-size:14px;
+
+}
 
 
-    color:white;
 
-    font-size:14px;
+
+
+/* 解鎖按鈕 */
+
+
+.unlock-bar{
+
+
+position:fixed;
+
+bottom:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+
+width:90%;
+
+max-width:390px;
+
+
+padding:16px;
+
+
+background:#00c853;
+
+
+border-radius:30px;
+
+
+text-align:center;
+
+
+font-size:18px;
+
+
+font-weight:bold;
+
+
+z-index:999;
+
 
 }
 
@@ -210,13 +293,15 @@ body{
 
 /* 聊天頁 */
 
+
 .chat-page{
 
-    display:none;
 
-    min-height:100vh;
+display:none;
 
-    background:#101827;
+min-height:100vh;
+
+background:#101827;
 
 }
 
@@ -224,28 +309,45 @@ body{
 
 .chat-header{
 
-    padding:15px;
 
-    border-bottom:1px solid #263246;
+display:flex;
 
-    display:flex;
+align-items:center;
 
-    align-items:center;
+gap:12px;
 
-    gap:12px;
+padding:15px;
+
+border-bottom:1px solid #334155;
 
 }
 
 
+
+.back{
+
+background:none;
+
+border:none;
+
+color:white;
+
+font-size:25px;
+
+}
+
+
+
 .avatar{
 
-    width:45px;
 
-    height:45px;
+width:45px;
 
-    border-radius:50%;
+height:45px;
 
-    object-fit:cover;
+border-radius:50%;
+
+object-fit:cover;
 
 }
 
@@ -253,9 +355,9 @@ body{
 
 .chat-name{
 
-    font-size:18px;
+font-size:18px;
 
-    font-weight:bold;
+font-weight:bold;
 
 }
 
@@ -265,27 +367,28 @@ body{
 
 .messages{
 
-    padding:20px;
 
-    min-height:70vh;
+padding:20px;
+
+min-height:70vh;
 
 }
 
 
 
+
 .msg{
 
-    background:#273449;
 
-    padding:14px;
+background:#273449;
 
-    border-radius:18px;
+padding:14px;
 
-    margin-bottom:15px;
+border-radius:18px;
 
-    color:#e5e7eb;
+margin-bottom:15px;
 
-    font-size:14px;
+font-size:14px;
 
 }
 
@@ -295,15 +398,17 @@ body{
 
 .chat-bottom{
 
-    position:fixed;
 
-    bottom:20px;
+position:fixed;
 
-    width:100%;
+bottom:20px;
 
-    max-width:430px;
+width:100%;
 
-    padding:0 20px;
+max-width:430px;
+
+padding:0 20px;
+
 
 }
 
@@ -312,21 +417,28 @@ body{
 .chat-bottom button{
 
 
-    width:100%;
+width:100%;
 
-    padding:16px;
+padding:16px;
 
-    border:none;
 
-    border-radius:30px;
+border:none;
 
-    background:#00c853;
 
-    color:white;
+border-radius:30px;
 
-    font-size:18px;
 
-    font-weight:bold;
+background:#00c853;
+
+
+color:white;
+
+
+font-size:18px;
+
+
+font-weight:bold;
+
 
 }
 
@@ -339,15 +451,18 @@ body{
 
 .footer{
 
-    background:#101827;
 
-    padding:30px 20px 40px;
+padding:30px 20px 90px;
 
-    color:#718096;
 
-    font-size:12px;
+font-size:12px;
 
-    line-height:1.8;
+
+line-height:1.8;
+
+
+color:#94a3b8;
+
 
 }
 
@@ -355,13 +470,13 @@ body{
 
 .footer-title{
 
-    text-align:center;
 
-    font-size:14px;
+text-align:center;
 
-    color:#94a3b8;
+font-size:14px;
 
-    margin-bottom:15px;
+color:#cbd5e1;
+
 
 }
 
@@ -369,19 +484,13 @@ body{
 
 .footer-line{
 
-    height:1px;
 
-    background:#263246;
+height:1px;
 
-    margin-bottom:18px;
+background:#334155;
 
-}
+margin:15px 0;
 
-
-
-.footer p{
-
-    margin:12px 0;
 
 }
 
@@ -389,46 +498,44 @@ body{
 
 .footer-links{
 
-    text-align:center;
 
-    margin-top:20px;
+text-align:center;
+
+margin-top:20px;
+
 
 }
+
 
 
 .footer-links a{
 
-    color:#94a3b8;
 
-    text-decoration:none;
+color:#94a3b8;
 
-    margin:0 8px;
+text-decoration:none;
+
+margin:0 8px;
+
 
 }
-
 
 
 .footer-links span{
 
-    color:#475569;
+color:#475569;
 
 }
-
 
 
 
 </style>
 
-
 </head>
-
-
-
 <body>
 
 
 <div class="mobile">
-
 
 
 <div id="home">
@@ -438,7 +545,9 @@ body{
 
 
 <h2>
-匹配成功（已認證）
+
+配對成功（已認證）
+
 </h2>
 
 
@@ -453,10 +562,26 @@ body{
 
 
 
+
+
 <div class="container" id="userList">
 
 
 </div>
+
+
+
+
+
+<div class="unlock-bar" onclick="unlockInfo()">
+
+
+🔒 解鎖查看更多資訊
+
+
+</div>
+
+
 
 
 
@@ -465,7 +590,7 @@ body{
 
 <div class="footer-title">
 
-正在為您配對附近最契合的正妹
+正在為您配對附近最契合的朋友
 
 </div>
 
@@ -473,25 +598,23 @@ body{
 <div class="footer-line"></div>
 
 
-
 <p>
 
 【合規聲明】本平台僅提供配對與約會服務，
-所有用戶資料均已依規定進行驗證與行為審核。
-平台嚴禁任何涉及非法金錢交易、暴力、毒品、
-性剝削或任何強迫、詐欺等不法行為。
+所有用戶資料均依規定進行驗證與審核。
+平台禁止任何違法、詐欺、騷擾或不當行為。
 
 </p>
 
 
 <p>
 
-為保護兒童及少年，本平台已依相關法規，
-採取必要防護措施。
-如發現疑似違規內容，
-請立即聯繫客服進行通報。
+為保障使用者安全，
+平台建立相關防護措施。
+如發現違規內容，請立即聯絡客服。
 
 </p>
+
 
 
 <div class="footer-links">
@@ -521,178 +644,158 @@ body{
 </div>
 
 
+
 </footer>
 
 
-
 </div>
+
+
+
+
+
+
+
 <script>
 
 
-const users = [
-
-
-{
-name:"直君",
-img:"000.jpg",
-distance:"附近0.5km",
-views:"1037人看过",
-messages:[
-"你好呀～刚刚看到你的资料😊",
-"感觉挺有缘分的",
-"平时喜欢旅行还是看电影呢？"
-]
-},
-
-
-
-{
-name:"雅琪",
-img:"002.jpg",
-distance:"附近1.2km",
-views:"856人看过",
-messages:[
-"嗨～很高兴认识你",
-"今天过得怎么样？",
-"有空可以聊聊天分享生活呀"
-]
-},
-
-
-
-
-{
-name:"晓婷",
-img:"003.jpg",
-distance:"附近2km",
-views:"728人看过",
-messages:[
-"你好😊谢谢关注",
-"最近比较喜欢听音乐放松",
-"你平时有什么兴趣爱好吗？"
-]
-},
-
-
-
-
-{
-name:"子晴",
-img:"004.jpg",
-distance:"附近3km",
-views:"624人看过",
-messages:[
-"刚刚看到你的资料啦",
-"感觉你的兴趣挺特别",
-"希望可以慢慢认识彼此"
-]
-},
-
-
-
-
-
-{
-name:"欣怡",
-img:"005.jpg",
-distance:"附近1.8km",
-views:"945人看过",
-messages:[
-"晚上好～",
-"今天忙完了吗？",
-"分享一下最近开心的事情吧"
-]
-},
-
-
-
-
-
-{
-name:"雨薇",
-img:"006.jpg",
-distance:"附近2.5km",
-views:"532人看过",
-messages:[
-"第一次聊天有点害羞哈哈",
-"不过认识新朋友很开心",
-"你平时喜欢做什么呢？"
-]
-},
-
-
-
-
-
-{
-name:"安琪",
-img:"007.jpg",
-distance:"附近4km",
-views:"861人看过",
-messages:[
-"谢谢你的关注",
-"希望可以找到聊得来的人",
-"慢慢了解会更有趣"
-]
-},
-
-
-
-
-
-{
-name:"小雅",
-img:"008.jpg",
-distance:"附近1km",
-views:"1142人看过",
-messages:[
-"你好呀～",
-"看到你的资料觉得很不错",
-"有机会可以交流一下兴趣"
-]
-},
-
-
-
-
-
-{
-name:"梦琪",
-img:"009.jpg",
-distance:"附近3.5km",
-views:"692人看过",
-messages:[
-"刚上线看到消息啦",
-"很开心认识新的朋友",
-"今天心情怎么样？"
-]
-},
-
-
-
+const users=[
 
 
 {
 name:"玥玥",
 img:"31.png",
 distance:"附近0.8km",
-views:"1265人看过",
+views:"1265人看過",
 messages:[
-"你好～欢迎认识我",
-"平时喜欢简单的生活方式",
-"期待认识有共同话题的人"
+"嗨～很高興認識你😊",
+"看到你的資料覺得很有趣",
+"平常喜歡什麼休閒活動呢？"
+]
+},
+
+
+{
+name:"雅琪",
+img:"002.jpg",
+distance:"附近1.2km",
+views:"856人看過",
+messages:[
+"你好呀～",
+"今天過得還順利嗎？",
+"可以聊聊你的興趣呀"
+]
+},
+
+
+{
+name:"曉婷",
+img:"003.jpg",
+distance:"附近2km",
+views:"728人看過",
+messages:[
+"很高興認識你",
+"平常喜歡聽音樂放鬆",
+"你呢？"
+]
+},
+
+
+{
+name:"子晴",
+img:"004.jpg",
+distance:"附近3km",
+views:"624人看過",
+messages:[
+"嗨～謝謝你的關注",
+"希望可以慢慢認識彼此",
+"分享生活中的小事情"
+]
+},
+
+
+{
+name:"欣怡",
+img:"005.jpg",
+distance:"附近1.8km",
+views:"945人看過",
+messages:[
+"晚上好😊",
+"今天忙完了嗎？",
+"最近有沒有開心的事情？"
+]
+},
+
+
+{
+name:"雨薇",
+img:"006.jpg",
+distance:"附近2.5km",
+views:"532人看過",
+messages:[
+"第一次聊天有點害羞",
+"但是認識新朋友很開心",
+"你平常喜歡做什麼？"
+]
+},
+
+
+{
+name:"安琪",
+img:"007.jpg",
+distance:"附近4km",
+views:"861人看過",
+messages:[
+"你好～",
+"希望找到聊得來的朋友",
+"慢慢了解彼此"
+]
+},
+
+
+{
+name:"小雅",
+img:"008.jpg",
+distance:"附近1km",
+views:"1142人看過",
+messages:[
+"剛看到你的資料",
+"感覺很不錯",
+"有機會多聊聊吧"
+]
+},
+
+
+{
+name:"夢琪",
+img:"009.jpg",
+distance:"附近3.5km",
+views:"692人看過",
+messages:[
+"你好呀～",
+"今天心情如何？",
+"期待認識新朋友"
+]
+},
+
+
+{
+name:"直君",
+img:"000.jpg",
+distance:"附近0.5km",
+views:"1037人看過",
+messages:[
+"嗨～很開心認識你",
+"平常喜歡旅行嗎？",
+"可以交流一下興趣"
 ]
 }
-
 
 
 ];
 
 
 
-
-
-//生成首页卡片
 
 
 const list=document.getElementById("userList");
@@ -711,10 +814,18 @@ card.className="card";
 
 card.innerHTML=`
 
+<div class="online-tag">
+
+現在可約
+
+</div>
+
+
 <img src="${user.img}">
 
 
 <div class="info">
+
 
 <div class="name">
 
@@ -742,11 +853,13 @@ ${user.views}
 
 <button class="btn">
 
-查看资料
+查看資料
 
 </button>
 
+
 `;
+
 
 
 
@@ -755,6 +868,7 @@ card.onclick=()=>{
 openChat(index);
 
 };
+
 
 
 list.appendChild(card);
@@ -768,10 +882,6 @@ list.appendChild(card);
 
 
 
-
-//打开聊天页面
-
-
 function openChat(index){
 
 
@@ -781,14 +891,13 @@ let user=users[index];
 document.getElementById("home").style.display="none";
 
 
-let chat=document.getElementById("chat");
 
-
-chat.style.display="block";
+document.getElementById("chat").style.display="block";
 
 
 
 document.getElementById("chatAvatar").src=user.img;
+
 
 
 document.getElementById("chatName").innerHTML=user.name;
@@ -829,8 +938,6 @@ box.appendChild(div);
 
 
 
-//返回首页
-
 
 function backHome(){
 
@@ -845,20 +952,28 @@ document.getElementById("home").style.display="block";
 
 
 
+
+
+function unlockInfo(){
+
+
+alert("請登入後查看完整資訊");
+
+
+}
+
+
+
 </script>
+<!-- 聊天頁 -->
+
 <div id="chat" class="chat-page">
 
 
 <div class="chat-header">
 
 
-<button onclick="backHome()" 
-style="
-background:none;
-border:0;
-color:white;
-font-size:22px;
-">
+<button class="back" onclick="backHome()">
 
 ←
 
@@ -870,13 +985,28 @@ font-size:22px;
 
 
 
+<div>
+
+
 <div class="chat-name" id="chatName">
 
 </div>
 
 
+<div style="color:#22c55e;font-size:12px;">
+
+● 在線
 
 </div>
+
+
+</div>
+
+
+
+</div>
+
+
 
 
 
@@ -891,10 +1021,13 @@ font-size:22px;
 
 
 
+
+
+
 <div class="chat-bottom">
 
 
-<button>
+<button onclick="unlockInfo()">
 
 開始聊天
 
@@ -905,7 +1038,11 @@ font-size:22px;
 
 
 
+
 </div>
+
+
+
 
 
 
@@ -915,22 +1052,31 @@ font-size:22px;
 <script>
 
 
-//倒計時
+// 倒數計時
 
 
-let seconds=278;
+let seconds = 278;
+
 
 
 setInterval(()=>{
 
 
+if(seconds>0){
+
+
 seconds--;
+
+
+}
+
 
 
 let m=Math.floor(seconds/60);
 
 
 let s=seconds%60;
+
 
 
 if(s<10){
@@ -952,6 +1098,9 @@ m+":"+s;
 
 
 </script>
+
+
+
 
 
 

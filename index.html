@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hant">
 
 <head>
 
@@ -7,106 +7,137 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>匹配成功</title>
+<title>配對成功</title>
 
 
 <style>
 
+
 *{
-box-sizing:border-box;
+    box-sizing:border-box;
 }
 
 
 body{
 
-margin:0;
+    margin:0;
 
-background:#101827;
+    background:#050914;
 
-font-family:"Microsoft YaHei",Arial;
+    font-family:
+    "Microsoft JhengHei",
+    Arial,
+    sans-serif;
 
-color:white;
+    color:white;
 
 }
 
 
-/*顶部*/
+/* 手機容器 */
+
+.mobile{
+
+    width:100%;
+
+    max-width:430px;
+
+    min-height:100vh;
+
+    margin:auto;
+
+    background:#101827;
+
+    overflow:hidden;
+
+}
+
+
+
+/* 頂部 */
+
 
 .header{
 
-text-align:center;
+    text-align:center;
 
-padding:20px;
+    padding:20px 15px;
 
 }
 
 
 .header h2{
 
-font-size:22px;
+    margin:0;
 
-margin:0;
+    font-size:22px;
 
 }
 
 
 .timer{
 
-margin-top:8px;
+    margin-top:8px;
 
-color:#60a5fa;
+    font-size:24px;
 
-font-size:22px;
+    color:#4da3ff;
 
-font-weight:bold;
+    font-weight:bold;
 
 }
 
 
 
-/*卡片*/
+
+
+/* 卡片區 */
+
 
 .container{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
-gap:12px;
+    gap:12px;
 
-padding:12px;
+    padding:12px;
 
 }
+
 
 
 
 .card{
 
-background:#1b263b;
+    background:#1b263b;
 
-border-radius:15px;
+    border-radius:15px;
 
-overflow:hidden;
+    overflow:hidden;
 
 }
+
 
 
 
 .card img{
 
-width:100%;
+    width:100%;
 
-height:230px;
+    height:210px;
 
-object-fit:cover;
+    object-fit:cover;
 
 }
 
 
 
+
 .info{
 
-padding:10px;
+    padding:10px;
 
 }
 
@@ -114,9 +145,9 @@ padding:10px;
 
 .name{
 
-font-size:18px;
+    font-size:17px;
 
-font-weight:bold;
+    font-weight:bold;
 
 }
 
@@ -124,11 +155,11 @@ font-weight:bold;
 
 .location{
 
-font-size:13px;
+    margin-top:5px;
 
-color:#ccc;
+    font-size:12px;
 
-margin-top:5px;
+    color:#fda4af;
 
 }
 
@@ -136,97 +167,254 @@ margin-top:5px;
 
 .views{
 
-font-size:12px;
+    margin-top:4px;
 
-color:#aaa;
+    color:#94a3b8;
+
+    font-size:12px;
 
 }
+
 
 
 
 .btn{
 
-width:90%;
+    width:90%;
 
-margin:10px;
+    margin:10px 5%;
 
-padding:12px;
+    padding:12px;
 
-border:0;
+    border:none;
 
-border-radius:12px;
+    border-radius:12px;
 
-background:linear-gradient(90deg,#3b82f6,#a855f7);
-
-color:white;
-
-font-size:15px;
-
-}
-
+    background:
+    linear-gradient(
+    90deg,
+    #3b82f6,
+    #a855f7
+    );
 
 
-/*消息*/
+    color:white;
 
-.message{
-
-position:fixed;
-
-right:15px;
-
-bottom:120px;
-
-background:white;
-
-color:#333;
-
-padding:12px;
-
-border-radius:15px;
-
-width:220px;
-
-font-size:13px;
+    font-size:14px;
 
 }
 
 
 
-/*底部*/
 
-.bottom{
 
-position:fixed;
+/* 聊天頁 */
 
-bottom:20px;
+.chat-page{
 
-left:10px;
+    display:none;
 
-right:10px;
+    min-height:100vh;
+
+    background:#101827;
+
+}
+
+
+
+.chat-header{
+
+    padding:15px;
+
+    border-bottom:1px solid #263246;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.avatar{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    object-fit:cover;
 
 }
 
 
 
-.bottom button{
+.chat-name{
 
-width:100%;
+    font-size:18px;
 
-padding:16px;
-
-border:0;
-
-border-radius:30px;
-
-background:#00c853;
-
-color:white;
-
-font-size:18px;
-
-font-weight:bold;
+    font-weight:bold;
 
 }
+
+
+
+
+
+.messages{
+
+    padding:20px;
+
+    min-height:70vh;
+
+}
+
+
+
+.msg{
+
+    background:#273449;
+
+    padding:14px;
+
+    border-radius:18px;
+
+    margin-bottom:15px;
+
+    color:#e5e7eb;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+.chat-bottom{
+
+    position:fixed;
+
+    bottom:20px;
+
+    width:100%;
+
+    max-width:430px;
+
+    padding:0 20px;
+
+}
+
+
+
+.chat-bottom button{
+
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#00c853;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* 底部聲明 */
+
+
+.footer{
+
+    background:#101827;
+
+    padding:30px 20px 40px;
+
+    color:#718096;
+
+    font-size:12px;
+
+    line-height:1.8;
+
+}
+
+
+
+.footer-title{
+
+    text-align:center;
+
+    font-size:14px;
+
+    color:#94a3b8;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.footer-line{
+
+    height:1px;
+
+    background:#263246;
+
+    margin-bottom:18px;
+
+}
+
+
+
+.footer p{
+
+    margin:12px 0;
+
+}
+
+
+
+.footer-links{
+
+    text-align:center;
+
+    margin-top:20px;
+
+}
+
+
+.footer-links a{
+
+    color:#94a3b8;
+
+    text-decoration:none;
+
+    margin:0 8px;
+
+}
+
+
+
+.footer-links span{
+
+    color:#475569;
+
+}
+
+
 
 
 </style>
@@ -239,15 +427,25 @@ font-weight:bold;
 <body>
 
 
+<div class="mobile">
+
+
+
+<div id="home">
+
+
 <div class="header">
 
+
 <h2>
-匹配成功（已认证）
+匹配成功（已認證）
 </h2>
 
 
-<div class="timer" id="time">
-04:44
+<div class="timer">
+
+04:38
+
 </div>
 
 
@@ -255,60 +453,287 @@ font-weight:bold;
 
 
 
+<div class="container" id="userList">
 
 
-<div class="container">
+</div>
 
 
-<div class="card">
 
-<img src="000.jpg">
+<footer class="footer">
+
+
+<div class="footer-title">
+
+正在為您配對附近最契合的正妹
+
+</div>
+
+
+<div class="footer-line"></div>
+
+
+
+<p>
+
+【合規聲明】本平台僅提供配對與約會服務，
+所有用戶資料均已依規定進行驗證與行為審核。
+平台嚴禁任何涉及非法金錢交易、暴力、毒品、
+性剝削或任何強迫、詐欺等不法行為。
+
+</p>
+
+
+<p>
+
+為保護兒童及少年，本平台已依相關法規，
+採取必要防護措施。
+如發現疑似違規內容，
+請立即聯繫客服進行通報。
+
+</p>
+
+
+<div class="footer-links">
+
+
+<a href="#">
+隱私權政策
+</a>
+
+
+<span>|</span>
+
+
+<a href="#">
+服務條款
+</a>
+
+
+<span>|</span>
+
+
+<a href="#">
+聯絡我們
+</a>
+
+
+</div>
+
+
+</footer>
+
+
+
+</div>
+<script>
+
+
+const users = [
+
+
+{
+name:"直君",
+img:"000.jpg",
+distance:"附近0.5km",
+views:"1037人看过",
+messages:[
+"你好呀～刚刚看到你的资料😊",
+"感觉挺有缘分的",
+"平时喜欢旅行还是看电影呢？"
+]
+},
+
+
+
+{
+name:"雅琪",
+img:"002.jpg",
+distance:"附近1.2km",
+views:"856人看过",
+messages:[
+"嗨～很高兴认识你",
+"今天过得怎么样？",
+"有空可以聊聊天分享生活呀"
+]
+},
+
+
+
+
+{
+name:"晓婷",
+img:"003.jpg",
+distance:"附近2km",
+views:"728人看过",
+messages:[
+"你好😊谢谢关注",
+"最近比较喜欢听音乐放松",
+"你平时有什么兴趣爱好吗？"
+]
+},
+
+
+
+
+{
+name:"子晴",
+img:"004.jpg",
+distance:"附近3km",
+views:"624人看过",
+messages:[
+"刚刚看到你的资料啦",
+"感觉你的兴趣挺特别",
+"希望可以慢慢认识彼此"
+]
+},
+
+
+
+
+
+{
+name:"欣怡",
+img:"005.jpg",
+distance:"附近1.8km",
+views:"945人看过",
+messages:[
+"晚上好～",
+"今天忙完了吗？",
+"分享一下最近开心的事情吧"
+]
+},
+
+
+
+
+
+{
+name:"雨薇",
+img:"006.jpg",
+distance:"附近2.5km",
+views:"532人看过",
+messages:[
+"第一次聊天有点害羞哈哈",
+"不过认识新朋友很开心",
+"你平时喜欢做什么呢？"
+]
+},
+
+
+
+
+
+{
+name:"安琪",
+img:"007.jpg",
+distance:"附近4km",
+views:"861人看过",
+messages:[
+"谢谢你的关注",
+"希望可以找到聊得来的人",
+"慢慢了解会更有趣"
+]
+},
+
+
+
+
+
+{
+name:"小雅",
+img:"008.jpg",
+distance:"附近1km",
+views:"1142人看过",
+messages:[
+"你好呀～",
+"看到你的资料觉得很不错",
+"有机会可以交流一下兴趣"
+]
+},
+
+
+
+
+
+{
+name:"梦琪",
+img:"009.jpg",
+distance:"附近3.5km",
+views:"692人看过",
+messages:[
+"刚上线看到消息啦",
+"很开心认识新的朋友",
+"今天心情怎么样？"
+]
+},
+
+
+
+
+
+{
+name:"玥玥",
+img:"31.png",
+distance:"附近0.8km",
+views:"1265人看过",
+messages:[
+"你好～欢迎认识我",
+"平时喜欢简单的生活方式",
+"期待认识有共同话题的人"
+]
+}
+
+
+
+];
+
+
+
+
+
+//生成首页卡片
+
+
+const list=document.getElementById("userList");
+
+
+
+users.forEach((user,index)=>{
+
+
+let card=document.createElement("div");
+
+
+card.className="card";
+
+
+
+card.innerHTML=`
+
+<img src="${user.img}">
+
 
 <div class="info">
 
 <div class="name">
-直君
+
+${user.name}
+
 </div>
 
+
 <div class="location">
-📍附近0.5km
+
+📍${user.distance}
+
 </div>
+
 
 <div class="views">
-1037 人看过
-</div>
 
-</div>
+${user.views}
 
-<button class="btn">
-查看资料
-</button>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<img src="002.jpg">
-
-
-<div class="info">
-
-<div class="name">
-雅琪
-</div>
-
-
-<div class="location">
-📍附近1.2km
-</div>
-
-
-<div class="views">
-856 人看过
 </div>
 
 
@@ -316,39 +741,139 @@ font-weight:bold;
 
 
 <button class="btn">
+
 查看资料
+
+</button>
+
+`;
+
+
+
+card.onclick=()=>{
+
+openChat(index);
+
+};
+
+
+list.appendChild(card);
+
+
+
+});
+
+
+
+
+
+
+
+//打开聊天页面
+
+
+function openChat(index){
+
+
+let user=users[index];
+
+
+document.getElementById("home").style.display="none";
+
+
+let chat=document.getElementById("chat");
+
+
+chat.style.display="block";
+
+
+
+document.getElementById("chatAvatar").src=user.img;
+
+
+document.getElementById("chatName").innerHTML=user.name;
+
+
+
+let box=document.getElementById("messages");
+
+
+box.innerHTML="";
+
+
+
+user.messages.forEach(text=>{
+
+
+let div=document.createElement("div");
+
+
+div.className="msg";
+
+
+div.innerHTML=text;
+
+
+box.appendChild(div);
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+//返回首页
+
+
+function backHome(){
+
+
+document.getElementById("chat").style.display="none";
+
+
+document.getElementById("home").style.display="block";
+
+
+}
+
+
+
+</script>
+<div id="chat" class="chat-page">
+
+
+<div class="chat-header">
+
+
+<button onclick="backHome()" 
+style="
+background:none;
+border:0;
+color:white;
+font-size:22px;
+">
+
+←
+
 </button>
 
 
-</div>
+
+<img id="chatAvatar" class="avatar" src="">
 
 
 
-
-
-<div class="card">
-
-<img src="003.jpg">
-
-
-<div class="info">
-
-<div class="name">
-晓婷
-</div>
-
-
-<div class="location">
-📍附近2km
-</div>
-
+<div class="chat-name" id="chatName">
 
 </div>
 
-
-<button class="btn">
-查看资料
-</button>
 
 
 </div>
@@ -357,33 +882,7 @@ font-weight:bold;
 
 
 
-
-<div class="card">
-
-<img src="004.jpg">
-
-
-<div class="info">
-
-<div class="name">
-子晴
-</div>
-
-
-<div class="location">
-📍附近3km
-</div>
-
-
-</div>
-
-
-<button class="btn">
-查看资料
-</button>
-
-
-</div>
+<div class="messages" id="messages">
 
 
 </div>
@@ -392,29 +891,22 @@ font-weight:bold;
 
 
 
-<div class="message">
+<div class="chat-bottom">
 
-💬 新消息<br><br>
-
-有人查看了你的资料
-
-
-</div>
-
-
-
-
-
-<div class="bottom">
 
 <button>
 
-立即查看信息
+開始聊天
 
 </button>
 
 
 </div>
+
+
+
+</div>
+
 
 
 
@@ -423,7 +915,10 @@ font-weight:bold;
 <script>
 
 
-let seconds=284;
+//倒計時
+
+
+let seconds=278;
 
 
 setInterval(()=>{
@@ -433,6 +928,7 @@ seconds--;
 
 
 let m=Math.floor(seconds/60);
+
 
 let s=seconds%60;
 
@@ -444,9 +940,11 @@ s="0"+s;
 }
 
 
-document.getElementById("time").innerHTML=
+
+document.querySelector(".timer").innerHTML=
 
 m+":"+s;
+
 
 
 },1000);
@@ -457,6 +955,10 @@ m+":"+s;
 
 
 
+</div>
+
+
 </body>
+
 
 </html>

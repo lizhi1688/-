@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>匹配成功</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#101827;
+    font-family:"Microsoft YaHei",Arial;
+    color:white;
+}
+
+
+/* 顶部 */
+
+.header{
+    text-align:center;
+    padding:20px 10px;
+}
+
+
+.header h2{
+    margin:0;
+    font-size:22px;
+}
+
+
+.timer{
+    margin-top:8px;
+    color:#60a5fa;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+
+/* 卡片区域 */
+
+.container{
+    padding:10px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+
+.card{
+
+    background:#1b263b;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+
+.card img{
+
+    width:100%;
+    height:230px;
+    object-fit:cover;
+
+}
+
+
+.info{
+
+    padding:10px;
+
+}
+
+
+.name{
+
+    font-size:18px;
+    font-weight:bold;
+
+}
+
+
+.location{
+
+    color:#ccc;
+    font-size:13px;
+    margin-top:5px;
+
+}
+
+
+.views{
+
+    color:#aaa;
+    font-size:12px;
+
+}
+
+
+
+.btn{
+
+    margin:10px;
+    width:calc(100% - 20px);
+    padding:12px;
+
+    border:none;
+    border-radius:12px;
+
+    background:linear-gradient(
+    90deg,
+    #3b82f6,
+    #a855f7
+    );
+
+    color:white;
+    font-size:15px;
+
+}
+
+
+
+
+/* 消息 */
+
+.message{
+
+position:fixed;
+right:15px;
+bottom:120px;
+
+background:white;
+color:#333;
+
+padding:12px;
+
+border-radius:15px;
+
+width:220px;
+
+font-size:13px;
+
+box-shadow:0 5px 20px #0005;
+
+}
+
+
+
+
+/* 底部按钮 */
+
+
+.bottom{
+
+position:fixed;
+
+bottom:20px;
+
+left:10px;
+
+right:10px;
+
+}
+
+
+.bottom button{
+
+width:100%;
+
+padding:16px;
+
+border:0;
+
+border-radius:30px;
+
+background:#00c853;
+
+color:white;
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="header">
+
+<h2>
+匹配成功（已认证）
+</h2>
+
+
+<div class="timer" id="time">
+04:44
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="container">
+
+
+
+<div class="card">
+
+<img src="https://picsum.photos/400/500?random=1">
+
+<div class="info">
+
+<div class="name">
+直君
+</div>
+
+
+<div class="location">
+📍附近 0.5km
+</div>
+
+
+<div class="views">
+1037 人看过
+</div>
+
+</div>
+
+
+<button class="btn">
+查看资料
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+<img src="https://picsum.photos/400/500?random=2">
+
+<div class="info">
+
+<div class="name">
+雅琪
+</div>
+
+
+<div class="location">
+📍附近 1.2km
+</div>
+
+
+<div class="views">
+856 人看过
+</div>
+
+
+</div>
+
+
+<button class="btn">
+查看资料
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+<img src="https://picsum.photos/400/500?random=3">
+
+<div class="info">
+
+<div class="name">
+晓婷
+</div>
+
+
+<div class="location">
+📍附近 2km
+</div>
+
+
+</div>
+
+
+<button class="btn">
+查看资料
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="https://picsum.photos/400/500?random=4">
+
+
+<div class="info">
+
+<div class="name">
+子晴
+</div>
+
+
+<div class="location">
+📍附近 3km
+</div>
+
+
+</div>
+
+
+<button class="btn">
+查看资料
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="message">
+
+💬 新消息<br><br>
+
+有人查看了你的资料
+
+</div>
+
+
+
+
+
+
+<div class="bottom">
+
+<button>
+立即查看信息
+</button>
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+let seconds=284;
+
+
+setInterval(()=>{
+
+
+seconds--;
+
+
+let min=Math.floor(seconds/60);
+
+let sec=seconds%60;
+
+
+if(sec<10){
+sec="0"+sec;
+}
+
+
+document.getElementById("time").innerHTML=
+min+":"+sec;
+
+
+
+},1000);
+
+
+
+</script>
+
+
+
+</body>
+
+
+</html>

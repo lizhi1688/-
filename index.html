@@ -532,13 +532,13 @@ color:#475569;
 </style>
 
 </head>
+
+
 <body>
 
 
 <div class="mobile">
-
-
-<div id="home">
+  <div id="home">
 
 
 <div class="header">
@@ -573,7 +573,7 @@ color:#475569;
 
 
 
-<div class="unlock-bar" onclick="unlockInfo()">
+<div class="unlock-bar" onclick="goLine()">
 
 
 🔒 解鎖查看更多資訊
@@ -621,7 +621,9 @@ color:#475569;
 
 
 <a href="#">
+
 隱私權政策
+
 </a>
 
 
@@ -629,7 +631,9 @@ color:#475569;
 
 
 <a href="#">
+
 服務條款
+
 </a>
 
 
@@ -637,7 +641,9 @@ color:#475569;
 
 
 <a href="#">
+
 聯絡我們
+
 </a>
 
 
@@ -648,6 +654,7 @@ color:#475569;
 </footer>
 
 
+
 </div>
 
 
@@ -655,8 +662,41 @@ color:#475569;
 
 
 
-
 <script>
+
+
+// =====================
+// LINE輪轉池
+// =====================
+
+
+const linePool=[
+
+
+"https://line.me/ti/p/~xx67854",
+
+
+"https://line.me/ti/p/~wzzzzz42",
+
+
+"https://line.me/ti/p/~xy2316",
+
+
+"https://line.me/ti/p/~xy4563"
+
+
+];
+
+
+let lineIndex=0;
+
+
+
+
+
+// =====================
+// 使用者資料
+// =====================
 
 
 const users=[
@@ -667,12 +707,19 @@ name:"玥玥",
 img:"31.png",
 distance:"附近0.8km",
 views:"1265人看過",
+
 messages:[
+
 "嗨～很高興認識你😊",
+
 "看到你的資料覺得很有趣",
+
 "平常喜歡什麼休閒活動呢？"
+
 ]
+
 },
+
 
 
 {
@@ -680,12 +727,19 @@ name:"雅琪",
 img:"002.jpg",
 distance:"附近1.2km",
 views:"856人看過",
+
 messages:[
+
 "你好呀～",
+
 "今天過得還順利嗎？",
+
 "可以聊聊你的興趣呀"
+
 ]
+
 },
+
 
 
 {
@@ -693,12 +747,19 @@ name:"曉婷",
 img:"003.jpg",
 distance:"附近2km",
 views:"728人看過",
+
 messages:[
+
 "很高興認識你",
+
 "平常喜歡聽音樂放鬆",
+
 "你呢？"
+
 ]
+
 },
+
 
 
 {
@@ -706,12 +767,19 @@ name:"子晴",
 img:"004.jpg",
 distance:"附近3km",
 views:"624人看過",
+
 messages:[
+
 "嗨～謝謝你的關注",
+
 "希望可以慢慢認識彼此",
+
 "分享生活中的小事情"
+
 ]
+
 },
+
 
 
 {
@@ -719,12 +787,19 @@ name:"欣怡",
 img:"005.jpg",
 distance:"附近1.8km",
 views:"945人看過",
+
 messages:[
+
 "晚上好😊",
+
 "今天忙完了嗎？",
+
 "最近有沒有開心的事情？"
+
 ]
+
 },
+
 
 
 {
@@ -732,12 +807,19 @@ name:"雨薇",
 img:"006.jpg",
 distance:"附近2.5km",
 views:"532人看過",
+
 messages:[
+
 "第一次聊天有點害羞",
+
 "但是認識新朋友很開心",
+
 "你平常喜歡做什麼？"
+
 ]
+
 },
+
 
 
 {
@@ -745,12 +827,19 @@ name:"安琪",
 img:"007.jpg",
 distance:"附近4km",
 views:"861人看過",
+
 messages:[
+
 "你好～",
+
 "希望找到聊得來的朋友",
+
 "慢慢了解彼此"
+
 ]
+
 },
+
 
 
 {
@@ -758,12 +847,19 @@ name:"小雅",
 img:"008.jpg",
 distance:"附近1km",
 views:"1142人看過",
+
 messages:[
+
 "剛看到你的資料",
+
 "感覺很不錯",
+
 "有機會多聊聊吧"
+
 ]
+
 },
+
 
 
 {
@@ -771,12 +867,19 @@ name:"夢琪",
 img:"009.jpg",
 distance:"附近3.5km",
 views:"692人看過",
+
 messages:[
+
 "你好呀～",
+
 "今天心情如何？",
+
 "期待認識新朋友"
+
 ]
+
 },
+
 
 
 {
@@ -784,11 +887,17 @@ name:"直君",
 img:"000.jpg",
 distance:"附近0.5km",
 views:"1037人看過",
+
 messages:[
+
 "嗨～很開心認識你",
+
 "平常喜歡旅行嗎？",
+
 "可以交流一下興趣"
+
 ]
+
 }
 
 
@@ -796,6 +905,14 @@ messages:[
 
 
 
+
+
+
+
+
+// =====================
+// 生成首頁卡片
+// =====================
 
 
 const list=document.getElementById("userList");
@@ -814,6 +931,7 @@ card.className="card";
 
 card.innerHTML=`
 
+
 <div class="online-tag">
 
 現在可約
@@ -822,6 +940,7 @@ card.innerHTML=`
 
 
 <img src="${user.img}">
+
 
 
 <div class="info">
@@ -834,11 +953,13 @@ ${user.name}
 </div>
 
 
+
 <div class="location">
 
 📍${user.distance}
 
 </div>
+
 
 
 <div class="views">
@@ -849,6 +970,7 @@ ${user.views}
 
 
 </div>
+
 
 
 <button class="btn">
@@ -863,9 +985,15 @@ ${user.views}
 
 
 
+
+// 點擊卡片直接跳LINE
+
+
 card.onclick=()=>{
 
-openChat(index);
+
+goLine();
+
 
 };
 
@@ -882,10 +1010,183 @@ list.appendChild(card);
 
 
 
+// =====================
+// LINE跳轉輪轉
+// =====================
+
+
+function goLine(){
+
+
+
+let url=linePool[lineIndex];
+
+
+
+lineIndex++;
+
+
+
+if(lineIndex>=linePool.length){
+
+
+lineIndex=0;
+
+
+}
+
+
+
+window.location.href=url;
+
+
+}
+
+
+
+
+<!-- 聊天頁 -->
+
+
+<div id="chat" class="chat-page">
+
+
+
+<div class="chat-header">
+
+
+<button class="back" onclick="backHome()">
+
+
+←
+
+
+</button>
+
+
+
+
+<img id="chatAvatar" class="avatar" src="">
+
+
+
+
+
+<div>
+
+
+<div class="chat-name" id="chatName">
+
+
+</div>
+
+
+
+<div style="color:#22c55e;font-size:12px;">
+
+
+● 在線
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="messages" id="messages">
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="chat-bottom">
+
+
+
+<button onclick="goLine()">
+
+
+
+開始聊天
+
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+// 返回首頁
+
+
+function backHome(){
+
+
+
+document.getElementById("chat").style.display="none";
+
+
+document.getElementById("home").style.display="block";
+
+
+}
+
+
+
+
+
+
+
+// 打開聊天頁
+
+
 function openChat(index){
 
 
+
 let user=users[index];
+
 
 
 document.getElementById("home").style.display="none";
@@ -904,10 +1205,14 @@ document.getElementById("chatName").innerHTML=user.name;
 
 
 
+
 let box=document.getElementById("messages");
 
 
+
 box.innerHTML="";
+
+
 
 
 
@@ -939,127 +1244,15 @@ box.appendChild(div);
 
 
 
-function backHome(){
-
-
-document.getElementById("chat").style.display="none";
-
-
-document.getElementById("home").style.display="block";
-
-
-}
-
-
-
-
-
-function unlockInfo(){
-
-
-alert("請登入後查看完整資訊");
-
-
-}
-
-
-
-</script>
-<!-- 聊天頁 -->
-
-<div id="chat" class="chat-page">
-
-
-<div class="chat-header">
-
-
-<button class="back" onclick="backHome()">
-
-←
-
-</button>
-
-
-
-<img id="chatAvatar" class="avatar" src="">
-
-
-
-<div>
-
-
-<div class="chat-name" id="chatName">
-
-</div>
-
-
-<div style="color:#22c55e;font-size:12px;">
-
-● 在線
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="messages" id="messages">
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="chat-bottom">
-
-
-<button onclick="unlockInfo()">
-
-開始聊天
-
-</button>
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<script>
-
-
 // 倒數計時
 
 
-let seconds = 278;
+let seconds=278;
 
 
 
 setInterval(()=>{
+
 
 
 if(seconds>0){
@@ -1072,7 +1265,9 @@ seconds--;
 
 
 
+
 let m=Math.floor(seconds/60);
+
 
 
 let s=seconds%60;
@@ -1081,13 +1276,18 @@ let s=seconds%60;
 
 if(s<10){
 
+
 s="0"+s;
+
 
 }
 
 
 
+
+
 document.querySelector(".timer").innerHTML=
+
 
 m+":"+s;
 
@@ -1097,8 +1297,8 @@ m+":"+s;
 
 
 
-</script>
 
+</script>
 
 
 

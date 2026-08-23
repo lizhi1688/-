@@ -271,7 +271,7 @@ const linePool = [
 "https://line.me/ti/p/~xy2316",
 "https://line.me/ti/p/~xy4563"
 ];
-let lineIndex = 0;
+let  lineIndex = 0;
 
 const users=[
 {
@@ -442,18 +442,43 @@ if(typeof fbq !== 'undefined'){
     fbq('track','Contact');
 }
 
-let url = linePool[lineIndex];
 
-lineIndex++;
+// 获取上一次分配记录
+let index = localStorage.getItem("lineIndex");
 
-if(lineIndex >= linePool.length){
-    lineIndex = 0;
+
+// 第一次访问
+if(index === null){
+    index = 0;
+}else{
+    index = Number(index);
 }
 
+
+// 当前LINE
+let url = linePool[index];
+
+
+// 下一次轮换
+index++;
+
+
+// 超过LINE数量重新开始
+if(index >= linePool.length){
+    index = 0;
+}
+
+
+// 保存记录
+localStorage.setItem("lineIndex", index);
+
+
+// 延迟跳转
 setTimeout(function(){
-    window.location.href=url;
+    window.location.href = url;
 },1000);
 
+}
 }
 </script>
 <!-- 聊天頁 -->
